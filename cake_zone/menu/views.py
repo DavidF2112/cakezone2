@@ -2,6 +2,9 @@ from django.shortcuts import render
 from .models import Category
 
 
-def menu(request):
-    categories = Category.objects.all()
-    return f'{categories}'
+def index(request):
+    categories = Category.objects.filter(is_visible=True)
+    context = {
+        'categories':categories,
+    }
+    return render(request,'menu.html' , context=context)

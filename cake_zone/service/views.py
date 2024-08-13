@@ -1,4 +1,6 @@
 from django.shortcuts import render
 
-def service(request):
-    return None
+
+
+def index(request):
+    return render(request,'service.html')
