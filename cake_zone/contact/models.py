@@ -1,6 +1,21 @@
 from django.db import models
 
+
+# Create your models here.
 class Information_Contact(models.Model):
-    name = models.CharField(max_length=50)
-    number = models.IntegerField()
-    
+    address = models.TextField(default="NewYork")
+    phone = models.CharField(max_length=255 , default='1234567890')
+    email = models.EmailField(default='None')
+
+    facebook = models.URLField(blank=True)
+    twitter = models.URLField(blank=True)
+    linkedin = models.URLField(blank=True)
+
+    is_visible = models.BooleanField(default=True)
+
+    def __str__(self):
+        return self.address
+
+    class Meta:
+        verbose_name = 'Contact Info'
+        verbose_name_plural = 'Contacts'

@@ -13,11 +13,11 @@
                     {% for category in categories %}
                         {% if forloop.first %}
                             <li class="nav-item">
-                                <a class="nav-link text-white active" data-bs-toggle="pill" href="#tab-{{ category.pk }}">{{ categories }}</a>
+                                <a class="nav-link text-white active" data-bs-toggle="pill" href="#tab-{{ category.pk }}">{{ category}}</a>
                             </li>
                         {% else %}
                             <li class="nav-item">
-                                <a class="nav-link text-white" data-bs-toggle="pill" href="#tab-{{ category.pk }}">{{ categories }}</a>
+                                <a class="nav-link text-white" data-bs-toggle="pill" href="#tab-{{ category.pk }}">{{ category }}</a>
                             </li>
                         {% endif %}    
                     {% endfor %}
