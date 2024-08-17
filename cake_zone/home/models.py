@@ -8,7 +8,17 @@ class Information_Cafe(models.Model):
 
 
 class Review_Clients(models.Model):
-    name_client = models.CharField(max_length=50)
+    name = models.CharField(max_length=50)
     grade = models.IntegerField()
+    photo = models.ImageField(upload_to="home_photos" ,blank=True , null=True)
     sort = models.PositiveSmallIntegerField()
     description = models.TextField()
+    is_visible = models.BooleanField(default=True)
+    
+    
+    class Meta:
+        verbose_name_plural = 'Client'
+        ordering = ('sort' , )
+
+    def __str__(self):
+        return self.name
