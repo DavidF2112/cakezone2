@@ -9,27 +9,28 @@
                     <div class="bg-primary border-inner text-center text-white p-5">
                         <i class="bi bi-geo-alt fs-1 text-white"></i>
                         <h6 class="text-uppercase my-2">Our Office</h6>
-                        <span>{{ contact.address }}</span>
+                        <span>{{ contacts.address }}</span>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6">
                     <div class="bg-primary border-inner text-center text-white p-5">
                         <i class="bi bi-envelope-open fs-1 text-white"></i>
                         <h6 class="text-uppercase my-2">Email Us</h6>
-                        <span>{{ contact.email }}</span>
+                        <span>{{ contacts.email }}</span>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6">
                     <div class="bg-primary border-inner text-center text-white p-5">
                         <i class="bi bi-phone-vibrate fs-1 text-white"></i>
                         <h6 class="text-uppercase my-2">Call Us</h6>
-                        <span>{{ contact.phone }}</span>
+                        <span>{{ contacts.phone }}</span>
                     </div>
                 </div>
             </div>
-            <div class="row justify-content-center">
+            {% if user.is_authenticated %}
+                <div class="row justify-content-center">
                 <div class="col-lg-6">
-                <form action="{% url 'contact:index' %}" method="post">
+                <form action="{% url 'contacts:index' %}" method="post">
                     {% csrf_token %}
                     <div class="row g-3">
                             <div class="col-sm-6">
@@ -63,6 +64,7 @@
                 </form>
                 </div>
             </div>
+            {% endif %}
         </div>
     </div>
     <!-- Contact End -->
